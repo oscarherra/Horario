@@ -52,7 +52,7 @@
           <a href="https://guiahorarios.ucr.ac.cr/ggh/" target="_blank">guiahorarios.ucr.ac.cr</a>.
         </p>
         <p>La función de esta página es facilitar al estudiante el proceso de armar su matrícula de manera más visual y automática.</p>
-        <p class="update-info"><em>Horarios actualizados al día 13 de julio 2024.</em></p>
+        <p class="update-info"><em>Horarios actualizados al día 13 de julio 2025.</em></p>
       </div>
     </div>
 
