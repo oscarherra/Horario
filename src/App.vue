@@ -58,6 +58,8 @@
 import HorarioTabla from './components/HorarioTabla.vue';
 import SelectorDeCursos from './components/SelectorDeCursos.vue';
 import { escuelas } from './data/cursos.js';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 function timeToMinutes(timeStr) {
   if (!timeStr || !timeStr.includes(':')) return 0;
@@ -159,26 +161,54 @@ export default {
 
       this.clases = this.clases.filter(clase => clase.nombre !== nombreClaseCompleto);
     },
-    descargarHorario(formato) {
-      // Nota: La lógica real de descarga requiere librerías como html2canvas y jsPDF.
-      // Esto es solo un marcador de posición.
+    async descargarHorario(formato) {
       if (this.clases.length === 0) {
         alert("El horario está vacío. Añade al menos un curso para descargar.");
         return;
       }
-      
       const elementoHorario = document.querySelector(".horario-table");
       if (!elementoHorario) {
-        alert("No se pudo encontrar la tabla del horario.");
+        alert("Error: No se pudo encontrar la tabla del horario.");
         return;
       }
 
+      // Ocultar los botones de eliminar
+      const botonesEliminar = elementoHorario.querySelectorAll(".delete-btn");
+      botonesEliminar.forEach(boton => {
+        boton.style.display = 'none';
+      });
+
+      // Esperar que el DOM se actualice
+      await this.$nextTick();
+
+      // Tomar la captura de pantalla de la tabla
+      const canvas = await html2canvas(elementoHorario, {
+        scale: 2,
+        useCORS: true,
+      });
+
+      // Volver a mostrar los botones inmediatamente después
+      botonesEliminar.forEach(boton => {
+        boton.style.display = 'block';
+      });
+
       if (formato === 'jpg') {
-        alert('Preparando descarga como JPG...');
-        // Aquí iría el código con html2canvas para generar la imagen
+        const imgData = canvas.toDataURL('image/jpeg', 0.9);
+        const link = document.createElement('a');
+        link.href = imgData;
+        link.download = 'mi-horario.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
       } else if (formato === 'pdf') {
-        alert('Preparando descarga como PDF...');
-        // Aquí iría el código con jsPDF y html2canvas para generar el PDF
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF({
+          orientation: 'landscape',
+          unit: 'px',
+          format: [canvas.width, canvas.height]
+        });
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        pdf.save('mi-horario.pdf');
       }
     }
   }
@@ -206,7 +236,7 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px; /* Coincide con la altura del header */
+  padding-top: 80px;
   padding-bottom: 20px;
   box-sizing: border-box;
 }
@@ -406,14 +436,14 @@ html, body {
 
 /* --- ESTILOS RESPONSIVE --- */
 @media (max-width: 768px) {
-  #app { padding-top: 64px; }
+  #app { padding-top: 70px; }
   .main-header { padding: 0 15px; }
-  .header-content { height: 64px; }
+  .header-content { height: 70px; }
   .header-logo-image { height: 32px; }
-  .header-title { font-size: 1.1em; display: none; /* Ocultar en móvil para dar espacio */ }
+  .header-title { font-size: 1.1em; display: none; }
   .header-actions { margin-left: auto; }
-  .btn-descargar span { display: none; } /* Ocultar texto del botón */
-  .dropdown-icon { margin-left: 0; }
+  .btn-descargar { font-size: 0; }
+  .btn-descargar .dropdown-icon { margin-left: 0; }
   .form-section { margin-top: 0; width: 100%; padding: 15px; border-radius: 0; border: none; box-shadow: none; border-bottom: 1px solid #eee; }
   .horario-wrapper { padding: 0; margin-top: 20px; }
   .gif-modal-content { padding: 20px; }
