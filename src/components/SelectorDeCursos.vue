@@ -1,7 +1,7 @@
 <template>
   <div class="selector-cursos-container">
     <div class="form-group">
-      <label for="escuela">Escuela o Carrera</label>
+      <label for="escuela">Escuela</label>
       <select id="escuela" v-model="escuelaSeleccionada">
         <option :value="null" disabled>-- Seleccione una escuela --</option>
         <option v-for="escuela in escuelas" :key="escuela.id" :value="escuela">

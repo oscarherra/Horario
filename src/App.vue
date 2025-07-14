@@ -3,16 +3,19 @@
     <header class="main-header">
       <div class="header-content">
         <div class="header-left">
-          <img src="@/assets/aeg.jpg" alt="Logo AEG" class="header-logo-image" />
+          <a href="https://www.instagram.com/ucr.aeg/" target="_blank" rel="noopener noreferrer">
+            <img src="@/assets/aeg.jpg" alt="Logo AEG" class="header-logo-image" />
+          </a>
           <h1 class="header-title">Planificador de Clases</h1>
         </div>
         <div class="header-actions">
-          <div class="dropdown">
-            <button class="btn-descargar">
+          <button class="btn-about" @click="showAboutModal = true">Sobre la Página</button>
+          <div class="dropdown" :class="{ 'is-open': isDropdownOpen }">
+            <button class="btn-descargar" @click="toggleDropdown">
               Descargar
               <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" class="dropdown-icon"><path d="M0 0h24v24H0z" fill="none"/><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
             </button>
-            <div class="dropdown-content">
+            <div class="dropdown-content" v-if="isDropdownOpen">
               <button @click="descargarHorario('jpg')">Como JPG</button>
               <button @click="descargarHorario('pdf')">Como PDF</button>
             </div>
@@ -39,6 +42,25 @@
         <button @click="gifUrl = null">Entendido</button>
       </div>
     </div>
+
+    <div v-if="showAboutModal" class="about-modal">
+      <div class="about-modal-content">
+        <button class="close-btn" @click="showAboutModal = false">×</button>
+        <h2>Sobre la Aplicación</h2>
+        <p>Página perteneciente a la <strong>Asociación de Estudiantes de Guanacaste - UCR</strong>.</p>
+        <p>La información es obtenida desde la página oficial de la Universidad de Costa Rica en la sección de guía de horario:
+          <a href="https://guiahorarios.ucr.ac.cr/ggh/" target="_blank">guiahorarios.ucr.ac.cr</a>.
+        </p>
+        <p>La función de esta página es facilitar al estudiante el proceso de armar su matrícula de manera más visual y automática.</p>
+        <p class="update-info"><em>Horarios actualizados al día 13 de julio 2024.</em></p>
+      </div>
+    </div>
+
+    <transition name="toast-fade">
+      <div v-if="notification.visible" class="toast-notification">
+        ✅ {{ notification.message }}
+      </div>
+    </transition>
 
     <footer class="simple-footer">
       <div class="footer-links">
@@ -82,7 +104,14 @@ export default {
         '#16A085', '#D35400', '#7D3C98', '#2980B9', '#27AE60'
       ],
       gifUrl: null,
-      apiKey: 'AKXfOEW2mYwrbWnExjuJG3bymFMwnjVa',
+      apiKey: process.env.VUE_APP_GIPHY_API_KEY,
+      isDropdownOpen: false,
+      notification: {
+        message: '',
+        visible: false
+      },
+      notificationTimeout: null,
+      showAboutModal: false,
     };
   },
   watch: {
@@ -100,6 +129,9 @@ export default {
     }
   },
   methods: {
+    toggleDropdown() {
+      this.isDropdownOpen = !this.isDropdownOpen;
+    },
     async buscarGifDeChoque() {
       try {
         const response = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${this.apiKey}&tag=crash,explosion,fail&rating=g`);
@@ -152,13 +184,12 @@ export default {
           this.clases.push(nuevaClase);
         }
       });
+      this.showNotification(`'${grupo.nombreCurso}' agregado con éxito.`);
     },
     eliminarClaseDelHorario(claseId) {
       const claseAEliminar = this.clases.find(c => c.id === claseId);
       if (!claseAEliminar) return;
-
       const nombreClaseCompleto = claseAEliminar.nombre;
-
       this.clases = this.clases.filter(clase => clase.nombre !== nombreClaseCompleto);
     },
     async descargarHorario(formato) {
@@ -171,27 +202,19 @@ export default {
         alert("Error: No se pudo encontrar la tabla del horario.");
         return;
       }
-
-      // Ocultar los botones de eliminar
+      this.isDropdownOpen = false;
       const botonesEliminar = elementoHorario.querySelectorAll(".delete-btn");
       botonesEliminar.forEach(boton => {
         boton.style.display = 'none';
       });
-
-      // Esperar que el DOM se actualice
       await this.$nextTick();
-
-      // Tomar la captura de pantalla de la tabla
       const canvas = await html2canvas(elementoHorario, {
         scale: 2,
         useCORS: true,
       });
-
-      // Volver a mostrar los botones inmediatamente después
       botonesEliminar.forEach(boton => {
         boton.style.display = 'block';
       });
-
       if (formato === 'jpg') {
         const imgData = canvas.toDataURL('image/jpeg', 0.9);
         const link = document.createElement('a');
@@ -210,13 +233,22 @@ export default {
         pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
         pdf.save('mi-horario.pdf');
       }
+    },
+    showNotification(message) {
+      if (this.notificationTimeout) {
+        clearTimeout(this.notificationTimeout);
+      }
+      this.notification.message = message;
+      this.notification.visible = true;
+      this.notificationTimeout = setTimeout(() => {
+        this.notification.visible = false;
+      }, 3000);
     }
   }
 };
 </script>
 
 <style>
-/* ESTILOS GLOBALES */
 html, body {
   margin: 0;
   padding: 0;
@@ -237,7 +269,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   padding-top: 80px;
-  padding-bottom: 20px;
+  padding-bottom: 0;
   box-sizing: border-box;
 }
 
@@ -258,7 +290,7 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 90px;
   max-width: 1300px;
   margin: 0 auto;
 }
@@ -268,9 +300,13 @@ html, body {
   align-items: center;
 }
 
+.header-left a {
+  line-height: 0;
+}
+
 .header-logo-image {
-  height: 40px;
-  margin-right: 12px;
+  height: 80px;
+  margin-right: 15px;
 }
 
 .header-title {
@@ -283,9 +319,9 @@ html, body {
 .header-actions {
   display: flex;
   align-items: center;
+  gap: 10px;
 }
 
-/* --- Estilos para el dropdown de descarga --- */
 .dropdown {
   position: relative;
 }
@@ -314,6 +350,11 @@ html, body {
   height: 20px;
   margin-left: 8px;
   fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.is-open .dropdown-icon {
+  transform: rotate(180deg);
 }
 
 .dropdown-content {
@@ -326,14 +367,10 @@ html, body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   z-index: 10;
   min-width: 160px;
-  display: none;
+  display: flex;
   flex-direction: column;
   overflow: hidden;
   padding: 5px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: flex;
 }
 
 .dropdown-content button {
@@ -352,14 +389,13 @@ html, body {
   background-color: #f1f3f5;
 }
 
-/* --- SECCIONES PRINCIPALES --- */
 .form-section {
   background-color: #ffffff;
   padding: 30px;
   border-radius: 12px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.07);
   border: 1px solid #dee2e6;
-  margin-top: 0;
+  margin-top: 30px;
   margin-bottom: 30px;
   width: 100%;
   max-width: 1200px;
@@ -375,20 +411,20 @@ html, body {
   box-sizing: border-box;
   flex-grow: 1;
   margin-top: 0;
+  margin-bottom: 50px;
 }
 
-/* --- ESTILOS MODAL --- */
 @keyframes fadeInScale {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
-.gif-modal {
+.gif-modal, .about-modal {
   position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-  background-color: rgba(0, 0, 0, 0.75); display: flex;
+  background-color: rgba(0, 0, 0, 0.6); display: flex;
   justify-content: center; align-items: center; z-index: 1000;
   backdrop-filter: blur(5px);
 }
-.gif-modal-content {
+.gif-modal-content, .about-modal-content {
   background: white; padding: 30px; border-radius: 16px; text-align: center;
   box-shadow: 0 10px 30px rgba(0,0,0,0.2); max-width: 500px; width: 90%;
   border: 1px solid #ddd; animation: fadeInScale 0.3s ease-out;
@@ -413,28 +449,102 @@ html, body {
   background-color: #b71c1c; transform: translateY(-2px);
 }
 
-/* --- ESTILOS FOOTER --- */
 .simple-footer {
-  width: 100%; padding: 30px 20px; margin-top: 50px; text-align: center;
-  border-top: 1px solid #dee2e6; background-color: #f8f9fa;
+  width: 100%;
+  padding: 30px 20px;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+  margin-top: auto;
 }
 .footer-links {
-  margin-bottom: 15px; display: flex; justify-content: center; gap: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 .footer-links a {
-  color: #6c757d; display: inline-block; transition: all 0.2s ease-in-out;
+  color: #6c757d;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
 }
 .footer-links a:hover {
-  color: #007bff; transform: translateY(-3px);
+  color: #007bff;
+  transform: translateY(-3px);
 }
 .footer-links svg {
   fill: currentColor;
 }
 .footer-text {
-  margin: 0; color: #6c757d; font-size: 0.9em;
+  margin: 0;
+  color: #6c757d;
+  font-size: 0.9em;
 }
 
-/* --- ESTILOS RESPONSIVE --- */
+.toast-notification {
+  position: fixed; bottom: 30px; left: 50%;
+  transform: translateX(-50%); background-color: #28a745;
+  color: white; padding: 12px 24px; border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 2000;
+  font-weight: 600; font-size: 0.95em; white-space: nowrap;
+}
+.toast-fade-enter-active,
+.toast-fade-leave-active {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.toast-fade-enter-from,
+.toast-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-50%) translateY(20px);
+}
+
+.btn-about {
+  padding: 10px 15px;
+  background-color: #e9ecef;
+  color: #495057;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.btn-about:hover {
+  background-color: #ced4da;
+  color: #212529;
+}
+.about-modal-content {
+  padding: 30px 40px; text-align: left; max-width: 600px;
+  line-height: 1.6; align-items: flex-start; position: relative;
+}
+.about-modal-content h2 {
+  margin-top: 0; margin-bottom: 20px; color: #343a40;
+  border-bottom: 1px solid #dee2e6; padding-bottom: 10px;
+  width: 100%;
+}
+.about-modal-content p {
+  color: #495057; margin-bottom: 15px;
+}
+.about-modal-content a {
+  color: #007bff; text-decoration: none; font-weight: 500;
+}
+.about-modal-content a:hover {
+  text-decoration: underline;
+}
+.update-info {
+  font-size: 0.85em; color: #6c757d; text-align: center;
+  margin-top: 30px; border-top: 1px solid #eee; padding-top: 15px;
+  width: 100%;
+}
+.close-btn {
+  position: absolute; top: 10px; right: 15px; background: transparent;
+  border: none; font-size: 24px; font-weight: bold;
+  color: #adb5bd; cursor: pointer; transition: color 0.2s ease;
+}
+.close-btn:hover {
+  color: #343a40;
+}
+
 @media (max-width: 768px) {
   #app { padding-top: 70px; }
   .main-header { padding: 0 15px; }
@@ -442,12 +552,12 @@ html, body {
   .header-logo-image { height: 32px; }
   .header-title { font-size: 1.1em; display: none; }
   .header-actions { margin-left: auto; }
-  .btn-descargar { font-size: 0; }
-  .btn-descargar .dropdown-icon { margin-left: 0; }
+  .btn-descargar, .btn-about { font-size: 0.8rem; padding: 8px 10px; }
+  .btn-descargar .dropdown-icon { display:none; }
   .form-section { margin-top: 0; width: 100%; padding: 15px; border-radius: 0; border: none; box-shadow: none; border-bottom: 1px solid #eee; }
   .horario-wrapper { padding: 0; margin-top: 20px; }
-  .gif-modal-content { padding: 20px; }
-  .gif-modal-content h3 { font-size: 1.5em; }
+  .gif-modal-content, .about-modal-content { padding: 20px; }
+  .gif-modal-content h3, .about-modal-content h2 { font-size: 1.5em; }
   .gif-modal-content button { padding: 10px 25px; font-size: 1em; }
 }
 </style>

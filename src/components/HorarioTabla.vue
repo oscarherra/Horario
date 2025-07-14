@@ -270,7 +270,6 @@ export default {
   background: rgba(0, 0, 0, 0.5);
 }
 
-/* --- ESTILOS RESPONSIVE --- */
 @media (max-width: 768px) {
   .horario-table {
     min-width: 0;
