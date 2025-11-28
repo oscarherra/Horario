@@ -99,7 +99,7 @@ const isDropdownOpen = ref(false);
 const notification = ref({ message: '', visible: false });
 let notificationTimeout = null;
 const showAboutModal = ref(false);
-const lastUpdatedDate = ref('20 de julio 2025');
+const lastUpdatedDate = ref('28 de noviembre 2025');
 
 // --- Carga y guardado en LocalStorage ---
 onMounted(() => {
