@@ -1041,3 +1041,4 @@ const escuelas = [
     ]
   }
 ];
+export { escuelas };
