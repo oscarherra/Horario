@@ -9,7 +9,7 @@ const escuelas = [
         nombre: 'CINE Y LITERATURA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF WALTER PALACIOS CASTILLO',
             horarios: [
               { dia: 'Viernes', horaInicio: '09:00', horaFin: '11:50' },
@@ -31,7 +31,7 @@ const escuelas = [
         nombre: 'SEMINARIO DE REALIDAD NACIONAL I DERECHOS HUMANOS Y SEGURIDAD CIUDADANA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF CARLOS SANDOVAL NÚÑEZ',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' }
@@ -44,7 +44,7 @@ const escuelas = [
         nombre: 'SEMINARIO DE REALIDAD NACIONAL II DERECHOS HUMANOS Y SEGURIDAD CIUDADANA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF CARLOS SANDOVAL NUÑÚZ',
             horarios: [
               { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' }
@@ -65,11 +65,11 @@ const escuelas = [
         nombre: 'CURSO BÁSICO DE REDACCIÓN',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF RUTH ESPINOZA CASCANTE',
             horarios: [
               { dia: 'Lunes', horaInicio: '09:00', horaFin: '11:50' },
-              { dia: 'Miércoles', horaInicio: '09:00', horaFin: '11:50' }
+              { dia: 'Martes', horaInicio: '09:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -87,12 +87,12 @@ const escuelas = [
         nombre: 'ESTRATEGIAS DE LECTURA EN INGLÉS I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF NELSON BUSTOS MENDOZA',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Viernes', horaInicio: '13:00', horaFin: '16:50' }
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' },
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' }
             ]
           }
         ]
@@ -102,12 +102,12 @@ const escuelas = [
         nombre: 'INGLÉS INTENSIVO I (ORAL)',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF LUCRECIA BORGE GONZÁLEZ',
             horarios: [
               { dia: 'Lunes', horaInicio: '08:00', horaFin: '11:50' },
-              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' },
-              { dia: 'Viernes', horaInicio: '08:00', horaFin: '11:50' }
+              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -117,12 +117,12 @@ const escuelas = [
         nombre: 'INGLÉS INTENSIVO II (ORAL)',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF CLAUDIA MARÍN MONTERO',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Viernes', horaInicio: '13:00', horaFin: '16:50' }
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' },
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' }
             ]
           }
         ]
@@ -132,7 +132,7 @@ const escuelas = [
         nombre: 'INTRODUCCIÓN A LA LITERATURA INGLESA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. ALFONSO GUTIÉRREZ SIBAJA',
             horarios: []
           }
@@ -151,7 +151,7 @@ const escuelas = [
         nombre: 'FUNDAMENTOS DE ASTRONOMÍA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF FABIAN CHAVERRI MIRANDA',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' },
@@ -159,7 +159,22 @@ const escuelas = [
             ]
           }
         ]
+      },
+      {
+        sigla: 'FS0210',
+        nombre: 'FÍSICA GENERAL I',
+        grupos: [
+          {
+            numero: '901',
+            profesor: 'PROF. OCTAVIO ZÚÑIGA',
+            horarios: [
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' },
+              { dia: 'Jueves', horaInicio: '13:00', horaFin: '16:50' }
+            ]
+          }
+        ]
       }
+      
     ]
   },
 
@@ -173,11 +188,11 @@ const escuelas = [
         nombre: 'PRECÁLCULO',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. GAUDY JIMÉNEZ',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '17:50' },
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '17:50' }
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '17:50' }
             ]
           }
         ]
@@ -187,7 +202,7 @@ const escuelas = [
         nombre: 'MATEMÁTICA ELEMENTAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'CONSULTAR ESCUELA',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '17:50' },
@@ -201,7 +216,7 @@ const escuelas = [
         nombre: 'CÁLCULO DIFERENCIAL E INTEGRAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. CÉSAR LARA',
             horarios: [
               { dia: 'Lunes', horaInicio: '07:00', horaFin: '11:50' },
@@ -215,7 +230,7 @@ const escuelas = [
         nombre: 'ÁLGEBRA LINEAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PORF. MIGUEL WALKER',
             horarios: [
               { dia: 'Martes', horaInicio: '07:00', horaFin: '11:50' },
@@ -232,7 +247,7 @@ const escuelas = [
             numero: '001',
             profesor: 'PROF. MIGUEL WALKER',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '17:50' },
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '17:50' },
               { dia: 'Jueves', horaInicio: '13:00', horaFin: '17:50' }
             ]
           }
@@ -243,10 +258,10 @@ const escuelas = [
         nombre: 'ÁLGEBRA LINEAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'CONSULTAR ESCUELA',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '07:00', horaFin: '11:50' },
+              { dia: 'Martes', horaInicio: '07:00', horaFin: '11:50' },
               { dia: 'Jueves', horaInicio: '07:00', horaFin: '11:50' }
             ]
           }
@@ -257,11 +272,11 @@ const escuelas = [
         nombre: 'CÁLCULO PARA CIENCIAS ECONÓMICAS I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. GAUDY JIMÉNEZ',
             horarios: [
               { dia: 'Lunes', horaInicio: '07:00', horaFin: '11:50' },
-              { dia: 'Martes', horaInicio: '07:00', horaFin: '11:50' }
+              { dia: 'Miércoles', horaInicio: '07:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -271,7 +286,7 @@ const escuelas = [
         nombre: 'CÁLCULO I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. HELLEN MENA',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '17:50' },
@@ -285,10 +300,10 @@ const escuelas = [
         nombre: 'CÁLCULO I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'CONSULTAR ESCUELA',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '07:00', horaFin: '11:50' },
+              { dia: 'Martes', horaInicio: '07:00', horaFin: '11:50' },
               { dia: 'Viernes', horaInicio: '07:00', horaFin: '11:50' }
             ]
           }
@@ -307,7 +322,7 @@ const escuelas = [
         nombre: 'QUÍMICA GENERAL INTENSIVA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. MARIELA ARAYA BARAHONA',
             horarios: [
               { dia: 'Lunes', horaInicio: '10:00', horaFin: '11:50' },
@@ -331,7 +346,7 @@ const escuelas = [
         nombre: 'LÓGICA Y RAZONAMIENTO JURÍDICO',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. ANDRÉS VILLAFUERTE',
             horarios: []
           }
@@ -342,21 +357,21 @@ const escuelas = [
         nombre: 'CONSULTORIOS JURÍDICOS',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. IVETH OROZCO GARCÍA',
             horarios: [
               { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' }
             ]
           },
           {
-            numero: '002',
+            numero: '902',
             profesor: 'PROF. ANA ELENA ALVARADO SALAZAR',
             horarios: [
               { dia: 'Jueves', horaInicio: '08:00', horaFin: '11:50' }
             ]
           },
           {
-            numero: '003',
+            numero: '903',
             profesor: 'PROF. ANDREA GUTIÉRREZ BALTODANO',
             horarios: [
               { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' }
@@ -369,21 +384,7 @@ const escuelas = [
         nombre: 'PRINCIPIOS DEL DERECHO PRIVADO I',
         grupos: [
           {
-            numero: '001',
-            profesor: 'PROF. MARIANELLA AGUIRRE RODRÍGUEZ',
-            horarios: [
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' }
-            ]
-          }
-        ]
-      },
-      {
-        sigla: 'DE2007',
-        nombre: 'PRINCIPIOS DEL DERECHO PRIVADO II',
-        grupos: [
-          {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. MARIANELLA AGUIRRE RODRÍGUEZ',
             horarios: [
               { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' },
@@ -393,14 +394,28 @@ const escuelas = [
         ]
       },
       {
+        sigla: 'DE2007',
+        nombre: 'PRINCIPIOS DEL DERECHO PRIVADO II',
+        grupos: [
+          {
+            numero: '901',
+            profesor: 'PROF. MARIANELLA AGUIRRE RODRÍGUEZ',
+            horarios: [
+              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' }
+            ]
+          }
+        ]
+      },
+      {
         sigla: 'DE4004',
         nombre: 'DERECHO DE LA CONTRATACIÓN PRIVADA I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. ANA ELENA ALVARADO SALAZAR',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' },
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' },
               { dia: 'Viernes', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
@@ -419,7 +434,7 @@ const escuelas = [
         nombre: 'SEMINARIO: INVESTIGACIÓN EN DIDÁCTICA DE LA MATEMÁTICA EN LA ETAPA ESCOLAR',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF EYLIN ABARCA',
             horarios: [
               { dia: 'Viernes', horaInicio: '08:00', horaFin: '11:50' },
@@ -433,11 +448,11 @@ const escuelas = [
         nombre: 'LA NARRACIÓN ORAL EN EL CONTEXTO DEL AULA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF MARGOT MIRANDA SALAZAR',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' },
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' }
+              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' }
             ]
           }
         ]
@@ -455,10 +470,10 @@ const escuelas = [
         nombre: 'ACTIVIDAD DEPORTIVA: VOLIBOL PRINCIPIANTE MIXTO',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF VINICIO RUIZ ORTEGA',
             horarios: [
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' }
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' }
             ]
           }
         ]
@@ -468,10 +483,10 @@ const escuelas = [
         nombre: 'ACTIVIDAD DEPORTIVA: BALONCESTO PRINCIPIANTES MIXTO',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF VINICIO RUIZ ORTEGA',
             horarios: [
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' }
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -489,7 +504,7 @@ const escuelas = [
         nombre: 'APLICACIONES OFIMÁTICAS PARA LA TOMA DE DECISIONES',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. CARLOS VEGA',
             horarios: [
               { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
@@ -503,10 +518,10 @@ const escuelas = [
         nombre: 'ADMINISTRACIÓN DE PROYECTOS Y HERRAMIENTAS PARA EL ANÁLISIS DE DATOS',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. JOEL JIMÉNEZ',
             horarios: [
-              { dia: 'Martes', horaInicio: '17:00', horaFin: '20:50' },
+              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '20:50' },
               { dia: 'Viernes', horaInicio: '16:00', horaFin: '19:50' }
             ]
           }
@@ -517,11 +532,11 @@ const escuelas = [
         nombre: 'PRINCIPIOS DE AUDITORÍA FINANCIERA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. IVÁN VILLAVERDE CARBAJO',
             horarios: [
               { dia: 'Lunes', horaInicio: '17:00', horaFin: '19:50' },
-              { dia: 'Martes', horaInicio: '17:00', horaFin: '19:50' }
+              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '19:50' }
             ]
           }
         ]
@@ -531,11 +546,11 @@ const escuelas = [
         nombre: 'ADMINISTRACIÓN FINANCIERA I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. LUIS ALBERTO BERMÚDEZ CARRILLO',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '15:50' },
-              { dia: 'Martes', horaInicio: '09:00', horaFin: '11:50' }
+              { dia: 'Miércoles', horaInicio: '09:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -545,7 +560,7 @@ const escuelas = [
         nombre: 'CONTABILIDAD BÁSICA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. BEYKER STEFAN OBANDO ZAMBRANO',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' },
@@ -559,7 +574,7 @@ const escuelas = [
         nombre: 'CONTABILIDAD INTERMEDIA I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. IVÁN VILLAVERDE CARBAJO',
             horarios: [
               { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' },
@@ -573,11 +588,11 @@ const escuelas = [
         nombre: 'CONTABILIDAD INTERMEDIA II',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF CHRISTHIAN MORA PONCE',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' }
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -587,10 +602,10 @@ const escuelas = [
         nombre: 'LEGISLACIÓN TRIBUTARIA Y ADUANERA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. PROF. ADRIANA RIVAS LOÁICIGA',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '19:50' },
+              { dia: 'Martes', horaInicio: '17:00', horaFin: '19:50' },
               { dia: 'Jueves', horaInicio: '17:00', horaFin: '19:50' }
             ]
           }
@@ -609,10 +624,10 @@ const escuelas = [
         nombre: 'ECONOMÍA INTERNACIONAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. ESTEBAN ARAYA SALAZAR',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '18:00', horaFin: '20:50' },
+              { dia: 'Martes', horaInicio: '18:00', horaFin: '20:50' },
               { dia: 'Jueves', horaInicio: '18:00', horaFin: '20:50' }
             ]
           }
@@ -623,10 +638,10 @@ const escuelas = [
         nombre: 'MÉTODOS Y TÉCNICAS DE INVESTIGACIÓN',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. ANABEL ALVARADO GONZÁLEZ',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '09:00', horaFin: '11:50' },
+              { dia: 'Martes', horaInicio: '09:00', horaFin: '11:50' },
               { dia: 'Jueves', horaInicio: '09:00', horaFin: '11:50' }
             ]
           }
@@ -637,18 +652,12 @@ const escuelas = [
         nombre: 'MERCADEO ESTRATÉGICO',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF- KATTIA QUESADA ARAYA',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '09:00', horaFin: '11:50' }
-            ]
-          },
-          {
-            numero: '002',
-            profesor: 'PROF- KATTIA QUESADA ARAYA',
-            horarios: [
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '15:50' }
-            ]
+              { dia: 'Martes', horaInicio: '09:00', horaFin: '11:50' },
+               { dia: 'Martes', horaInicio: '13:00', horaFin: '15:50' }
+           ]
           }
         ]
       },
@@ -657,11 +666,11 @@ const escuelas = [
         nombre: 'ACCESO A MERCADOS EN LOS TRATADOS COMERCIALES DE COSTA RICA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. OLIVIER TRAÑA DUARTE',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '15:50' },
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '15:50' }
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '15:50' }
             ]
           }
         ]
@@ -679,10 +688,10 @@ const escuelas = [
         nombre: 'INTRODUCCIÓN A LA ECONOMÍA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. STEPHANIE PORRAS ACEVEDO',
             horarios: [
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' },
               { dia: 'Jueves', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
@@ -701,11 +710,11 @@ const escuelas = [
         nombre: 'SISTEMAS DE ATENCIÓN EN SALUD Y AMBIENTE',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. YORDAN BRENES VARGAS',
             horarios: [
               { dia: 'Lunes', horaInicio: '09:00', horaFin: '11:50' },
-              { dia: 'Martes', horaInicio: '09:00', horaFin: '11:50' }
+              { dia: 'Miércoles', horaInicio: '09:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -715,11 +724,11 @@ const escuelas = [
         nombre: 'ELEMENTOS DE INGENIERÍA AMBIENTAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. WENDY PORRAS BARQUERO',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' }
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' },
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -729,7 +738,7 @@ const escuelas = [
         nombre: 'FUNDAMENTOS DE ECOTOXICOLOGÍA Y CONTAMINACIÓN AMBIENTAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. GABRIEL BRENES BRAVO',
             horarios: [
               { dia: 'Lunes', horaInicio: '09:00', horaFin: '11:50' },
@@ -751,18 +760,18 @@ const escuelas = [
         nombre: 'MATEMÁTICA BÁSICA PARA INFORMÁTICA EMPRESARIAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'CONSULTAR ESCUELA',
             horarios: [
               { dia: 'Lunes', horaInicio: '08:00', horaFin: '10:50' },
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '15:50' }
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '15:50' }
             ]
           },
           {
-            numero: '051',
+            numero: '951',
             profesor: 'CONSULTAR ESCUELA',
             horarios: [
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '10:50' }
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '10:50' }
             ]
           }
         ]
@@ -772,18 +781,18 @@ const escuelas = [
         nombre: 'DESARROLLO DE SOFTWARE II',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'CONSULTAR ESCUELA',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' }
+              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' }
             ]
           },
           {
-            numero: '051',
+            numero: '951',
             profesor: 'CONSULTAR ESCUELA',
             horarios: [
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' },
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' },
               { dia: 'Jueves', horaInicio: '13:00', horaFin: '16:50' }
             ]
           }
@@ -802,18 +811,18 @@ const escuelas = [
         nombre: 'PROMOCIÓN DE LA SALUD Y CUIDADOS DE LA NIÑEZ',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. TANIA RAMÍREZ',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '20:50' },
-              { dia: 'Martes', horaInicio: '17:00', horaFin: '20:50' }
+              { dia: 'Martes', horaInicio: '17:00', horaFin: '20:50' },
+              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '20:50' }
             ]
           },
           {
-            numero: '002',
+            numero: '902',
             profesor: 'PROF TANIA RAMÍREZ LÓPEZ',
             horarios: [
-              { dia: 'Martes', horaInicio: '17:00', horaFin: '20:50' },
+              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '20:50' },
               { dia: 'Jueves', horaInicio: '17:00', horaFin: '20:50' }
             ]
           }
@@ -824,7 +833,7 @@ const escuelas = [
         nombre: 'DIDÁCTICA DE LA LITERATURA INFANTIL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. MILAGRO CARRILLO GÓMEZ',
             horarios: [
               { dia: 'Sábado', horaInicio: '08:00', horaFin: '11:50' },
@@ -838,10 +847,10 @@ const escuelas = [
         nombre: 'INVESTIGACIÓN EDUCATIVA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF LUIS CASTELLÓN ZELAYA',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' },
+              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
               { dia: 'Jueves', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
@@ -852,11 +861,11 @@ const escuelas = [
         nombre: 'FUNDAMENTOS DE ADMINISTRACIÓN EDUCATIVA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF VIRGINIA SALAS VALLEJOS',
             horarios: [
               { dia: 'Lunes', horaInicio: '17:00', horaFin: '20:50' },
-              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '20:50' }
+              { dia: 'Martes', horaInicio: '17:00', horaFin: '20:50' }
             ]
           }
         ]
@@ -866,11 +875,11 @@ const escuelas = [
         nombre: 'SEMINARIO DE ÉTICA EN EL EJERCICIO DOCENTE',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF ESTEBAN SÁNCHEZ SALAZAR',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '15:50' },
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '15:50' }
+              { dia: 'Martes', horaInicio: '13:00', horaFin: '15:50' },
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '15:50' }
             ]
           }
         ]
@@ -880,11 +889,11 @@ const escuelas = [
         nombre: 'MÚSICA Y EXPRESIÓN CORPORAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF ERICK ESPINOZA HERNÁNDEZ',
             horarios: [
               { dia: 'Lunes', horaInicio: '13:00', horaFin: '16:50' },
-              { dia: 'Martes', horaInicio: '17:00', horaFin: '20:50' }
+              { dia: 'Miércoles', horaInicio: '17:00', horaFin: '20:50' }
             ]
           }
         ]
@@ -894,11 +903,11 @@ const escuelas = [
         nombre: 'SEMINARIO DE INTEGRACIÓN ESCUELA Y CONTEXTO SOCIAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF HELEN UREÑA MORA',
             horarios: [
-              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' },
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' }
+              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' }
             ]
           }
         ]
@@ -908,11 +917,11 @@ const escuelas = [
         nombre: 'DIDÁCTICA DE LA LENGUA ESPAÑOLA PARA LA EDUCACIÓN PRIMARIA I',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF TANIA MORALES MARTÍNEZ',
             horarios: [
               { dia: 'Lunes', horaInicio: '17:00', horaFin: '20:50' },
-              { dia: 'Miércoles', horaInicio: '16:00', horaFin: '19:50' }
+              { dia: 'Martes', horaInicio: '16:00', horaFin: '19:50' }
             ]
           }
         ]
@@ -930,7 +939,7 @@ const escuelas = [
         nombre: 'ABORDAJE DE LA DIVERSIDAD EN LA EDUCACIÓN DE PERSONAS JÓVENES Y ADULTAS',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. OLGA GUZMÁN',
             horarios: [
               { dia: 'Jueves', horaInicio: '17:00', horaFin: '19:50' },
@@ -944,7 +953,7 @@ const escuelas = [
         nombre: 'ÉTICA PROFESIONAL',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF ESTEBAN SÁNCHEZ SALAZAR',
             horarios: [
               { dia: 'Sábado', horaInicio: '08:00', horaFin: '10:50' },
@@ -958,7 +967,7 @@ const escuelas = [
         nombre: 'INGLÉS BÁSICO II',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. MARCELA MONTENEGRO SÁNCHEZ',
             horarios: [
               { dia: 'Lunes', horaInicio: '09:00', horaFin: '11:50' },
@@ -977,8 +986,8 @@ const escuelas = [
             numero: '001',
             profesor: 'PROF. MICHAEL MOYA CALDERÓN',
             horarios: [
-              { dia: 'Martes', horaInicio: '08:00', horaFin: '11:50' },
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '16:50' }
+              { dia: 'Miércoles', horaInicio: '08:00', horaFin: '11:50' },
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '16:50' }
             ]
           }
         ]
@@ -988,11 +997,11 @@ const escuelas = [
         nombre: 'FUNDAMENTOS DE ADMINISTRACIÓN',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. LUIS ALEXANDER GARCÍA UGALDE',
             horarios: [
               { dia: 'Lunes', horaInicio: '18:00', horaFin: '20:50' },
-              { dia: 'Martes', horaInicio: '18:00', horaFin: '20:50' }
+              { dia: 'Miércoles', horaInicio: '18:00', horaFin: '20:50' }
             ]
           }
         ]
@@ -1002,11 +1011,11 @@ const escuelas = [
         nombre: 'INGLÉS CONVERSACIONAL II',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF. LUPITA FONSECA BRENES',
             horarios: [
-              { dia: 'Martes', horaInicio: '09:00', horaFin: '11:50' },
-              { dia: 'Martes', horaInicio: '13:00', horaFin: '15:50' }
+              { dia: 'Miércoles', horaInicio: '09:00', horaFin: '11:50' },
+              { dia: 'Miércoles', horaInicio: '13:00', horaFin: '15:50' }
             ]
           }
         ]
@@ -1024,7 +1033,7 @@ const escuelas = [
         nombre: 'PASANTÍA',
         grupos: [
           {
-            numero: '001',
+            numero: '901',
             profesor: 'PROF RAMIREZ, MURILLO,BARRANTES',
             horarios: [
               { dia: 'Lunes', horaInicio: '08:00', horaFin: '11:50' },
