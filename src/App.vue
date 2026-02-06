@@ -44,18 +44,45 @@
     </div>
 
     <div v-if="showAboutModal" class="about-modal">
-      <div class="about-modal-content">
-        <button class="close-btn" @click="showAboutModal = false">×</button>
-        <h2>Sobre la Aplicación</h2>
-        <p>Página perteneciente a la <strong>Asociación de Estudiantes de Guanacaste - UCR</strong>.</p>
-        <p>La información es obtenida desde la página oficial de la Universidad de Costa Rica en la sección de guía de horario:
-          <a href="https://guiahorarios.ucr.ac.cr/ggh/" target="_blank">guiahorarios.ucr.ac.cr</a>.
-        </p>
-        <p>La función de esta página es facilitar al estudiante el proceso de armar su matrícula de manera más visual y automática.</p>
-        <p class="update-info"><em>Horarios actualizados al día {{ lastUpdatedDate }}.</em></p>
-      </div>
-      
-    </div>
+  <div class="about-modal-content">
+    <button class="close-btn" @click="showAboutModal = false">×</button>
+
+    <h2>Sobre la Aplicación</h2>
+
+    <p>
+      Página de apoyo estudiantil perteneciente a la
+      <strong>Asociación de Estudiantes de Informática Empresarial – UCR Sede Guanacaste</strong>.
+    </p>
+
+    <p>
+      La información se obtiene desde la Guía Oficial de Horarios de la Universidad de Costa Rica:
+      <a href="https://guiahorarios.ucr.ac.cr/ggh/" target="_blank" rel="noopener">
+        guiahorarios.ucr.ac.cr
+      </a>.
+    </p>
+
+    <p>
+      Esta herramienta permite visualizar, organizar y planificar el horario de matrícula de forma más
+      clara y automática, ayudando a reducir choques de horario.
+    </p>
+
+    <p class="update-info">
+      <em>Horarios actualizados al {{ lastUpdatedDate }}.</em><br />
+      <span class="dev-credit">
+        Desarrollado por
+        <a
+          href="https://www.instagram.com/oscar_herraa13/"
+          target="_blank"
+          rel="noopener"
+          class="dev-link"
+        >
+          Óscar Herra Abarca
+        </a>
+      </span>
+    </p>
+  </div>
+</div>
+
 
     <transition name="toast-fade">
       <div v-if="notification.visible" class="toast-notification">
@@ -64,16 +91,18 @@
     </transition>
 
     <footer class="simple-footer">
-      <div class="footer-links">
-        <a href="https://www.instagram.com/ucr.aeg/" target="_blank" title="Instagram">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.012 3.584-.07 4.85c-.148 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.85-.07-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.012-3.584.07-4.85c.148-3.225 1.664-4.771 4.919-4.919C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.74 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.74 0 12s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947C21.728 2.69 19.306.273 14.948.073 13.667.014 13.26 0 12 0zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zM12 16c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44.796-.645 1.441-1.44-.645-1.44-1.441-1.44z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/UCRAEG" target="_blank" title="Facebook">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-3 7h-1.924c-.615 0-1.076.252-1.076.888v1.112h3l-.438 4h-2.562v12h-5v-12h-3v-4h3v-2.223c0-1.716.994-4.777 4.777-4.777h3.223v5z"/></svg>
-        </a>
-      </div>
-      <p class="footer-text">&copy; {{ new Date().getFullYear() }} Asociación de Estudiantes de Guanacaste - UCR. Todos los derechos reservados.</p>
-    </footer>
+  <p class="footer-text">
+    &copy; {{ new Date().getFullYear() }} 
+    Sitio desarrollado por 
+    <a href="https://www.instagram.com/oscar_herraa13/" 
+       target="_blank" 
+       class="dev-link">
+       Óscar Herra Abarca
+    </a>. 
+    Todos los derechos reservados.
+  </p>
+</footer>
+
   </div>
 </template>
 
@@ -99,7 +128,7 @@ const isDropdownOpen = ref(false);
 const notification = ref({ message: '', visible: false });
 let notificationTimeout = null;
 const showAboutModal = ref(false);
-const lastUpdatedDate = ref('28 de noviembre 2025');
+const lastUpdatedDate = ref('04 de febrero 2026');
 
 // --- Carga y guardado en LocalStorage ---
 onMounted(() => {
@@ -452,45 +481,47 @@ html, body {
 }
 
 .simple-footer {
-  width: 100vw;
-  background-color: #ffffff;
-  border-top: 1px solid #e9ecef;
-  padding: 30px 60px; /* padding grande para altura */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 50px; /* altura mínima */
-  box-sizing: border-box;
+  width: 100%;
+  background: #f3f5f7;        /* similar al fondo claro */
+  border-top: 1px solid #e6eaee;
+  padding: 18px 0;
+  margin-top: 24px;
 }
 
-.footer-links {
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.footer-links a {
-  color: #6c757d;
-  display: inline-block;
-  transition: all 0.2s ease-in-out;
-}
-
-.footer-links a:hover {
-  color: #007bff;
-  transform: translateY(-3px);
-}
-
-.footer-links svg {
-  fill: currentColor;
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  text-align: center;
 }
 
 .footer-text {
   margin: 0;
-  color: #6c757d;
-  font-size: 0.9em;
+  color: #5b6572;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
+
+.dev-link {
+  color: #1f7a3f;              /* verde sobrio (combina con AEG) */
+  font-weight: 700;
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.dev-link:hover {
+  background: rgba(31, 122, 63, 0.12);
+  transform: translateY(-1px);
+  text-decoration: underline;
+}
+
+.dev-link:focus {
+  outline: 2px solid rgba(31, 122, 63, 0.35);
+  outline-offset: 2px;
+}
+
 
 .toast-notification {
   position: fixed; bottom: 30px; left: 50%;
@@ -582,4 +613,11 @@ html, body {
   .gif-modal-content h3, .about-modal-content h2 { font-size: 1.5em; }
   .gif-modal-content button { padding: 10px 25px; font-size: 1em; }
 }
+.dev-credit{
+  display:inline-block;
+  margin-top:8px;
+  color:#6c757d;
+  font-size:0.95em;
+}
+
 </style>
